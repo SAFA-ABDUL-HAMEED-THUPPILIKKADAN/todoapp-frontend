@@ -216,6 +216,8 @@ const Todo = () => {
         const completedAt = new Date(todo.completedAt);
         if (completedAt <= deadline) {
           completedOnTime.push(todo);
+        } else if (completedAt > deadline && todo.isCompleted == true) {
+          completedOnTime.push(todo);
         } else {
           delayed.push(todo); // If completed after deadline, move to delayed
         }
